@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>App Name: A Coding Project by CHeron</title>
+		<title>LOOPS: A Coding Project by CHeron</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
 		<!-- Bootstrap CSS -->
 		<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
 		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-			crossorigin="anonymous"
-		/>
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 		<script
-			src="https://kit.fontawesome.com/5db21ba9c6.js"
-			crossorigin="anonymous"
-		></script>
+			src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous" ></script>
 		<link rel="stylesheet" href="css/site.css" />
 		<link rel="icon" href="img/favicon_io/favicon-32x32.png" type="image/png" />
 		<link rel="stylesheet" href="css/prism.css">
@@ -31,9 +23,8 @@
 		<!-- === Nav Section === -->
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"
-					><img
-						src="img/favicon_io/favicon-32x32.png" alt="Norech Tech Logo" class="d-inline-block align-text-top" width="30" height="24" /> APP NAME</a>
+				<a class="navbar-brand" href="/index.html"><img
+						src="img/favicon_io/favicon-32x32.png" alt="Norech Tech Logo" class="d-inline-block align-text-top" width="30" height="24" /> LOOPS</a>
 				<button
 					class="navbar-toggler"
 					type="button"
@@ -41,8 +32,7 @@
 					data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse"
 					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
+					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
@@ -57,7 +47,7 @@
 							<a class="nav-link active" aria-current="page"  href="code.html">The Code</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#git-repo-link" target="_blank">Git Repo</a>
+							<a class="nav-link" href="https://github.com/cherondev/Loops" target="_blank">Git Repo</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#portfolio-link" target="_blank">About</a>
@@ -69,22 +59,118 @@
 		<!-- === Main Section === -->
 		<main class="flex-shrink-0">
          <div class="container py-4 px-5 mt-5">
-				<h2 class="norder-1 border-bottom border-dark">The Code for App Name</h2>
+				<h2 class="norder-1 border-bottom border-dark">The Code for LOOPS</h2>
 				<div class="row row-cols-1 row-cols-lg-2">
 					<div class="col-lg-8">
 						<pre class="line-numbers">
 							<code class="language-javascript">
-								// Call Hello World
-								function helloWorld() {
-									alert("Hello World!");
-								}
-							</code>
-						</pre>
-					</div>
-					<div class="col-lg-4">
-						<p>The code is structured in one function.</p>
-						<h5>Hello World</h5>
-						<p>Hello World is a function that displays an alert with a message of "Hello World!"</p>
+								//Get from values from the user
+		//Starts or controller function
+		function getValues() {
+			//Get values from the page
+			let startValue = document.getElementById("startValue").value;
+			let endValue = document.getElementById("endValue").value;
+
+			//We need to validate our input
+			//Parse into integer
+			startValue = parseInt(startValue);
+			endValue = parseInt(endValue);
+
+			if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+				//Call generateNumbers
+				let numbers = generateNumbers(startValue, endValue);
+				//We call displayNumbers
+				displayNumbers(numbers);
+			} else {
+				alert("You must enter an integer");
+			}
+		}
+
+		//Generate numbers from startValue to the endValue
+		//Logic function(s)
+		function generateNumbers(sValue, eValue) {
+			let numbers = [];
+
+			//We want to get all numbers from start to end
+			for (let index = sValue; index <= eValue; index++) {
+				//This will execute in a loop until index = eValue
+				numbers.push(index);
+			}
+			return numbers;
+		}
+
+		//Display the numbers and mark even numbers bold.
+		//Displays or view functions
+		function displayNumbers(numbers) {
+			let templateRows = "";
+
+			for (let index = 0; index < numbers.length; index++) {
+				let number = numbers[index];
+				//My solution which works perfectly
+
+				//if (number % 2 == 0) {
+				//	templateRows += `<tr><td><strong>${number}</strong></td></tr>`;
+				//} else {
+				//	templateRows += `<tr><td>${number}</td></tr>`;
+				//}
+				
+				//Bobby Davis' solution which adds additional complexity but is good to know
+				let className = "even";
+				
+				if (number % 2 == 0) {
+					className = "even";
+				} else {
+					className = "odd";
+				}
+				//This does not render correctly with Prism. Using equivalent escape charactersfor "<" and "&" to make it work.
+				//templateRows += `<tr><td class="${className}">${number}</td></tr>`;
+				templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>
+			}
+
+			document.getElementById("results").innerHTML = templateRows;
+		}
+
+									</code>
+								</pre>
+							</div>
+							<div class="col-lg-4">
+								<h5>LOOPS</h5>
+								<p>Loops is an app that loops through a series of numbers based on the Start and End numeric values entered by a user. The code contains three functions.</p>
+								<h5>Function: getValues()</h5>
+									<p><ol>
+										<li>This function gets the starting and ending values from a user.</li>
+										<li>The values are then parsed into an Integer, then validated to ensure they are numeric by using the <strong>Numeric</strong> property of the <strong>isInteger</strong> method.</li>
+										<li>If the values are numeric, the generateNumbers() function is called.</li>
+										<li>Then, displayNumbers() function is called.</li>
+										<li>If not, an alert is generated with the message, "You must enter an integer.</li>
+										</ol>
+									</p>
+									<h5>Function: generateNumbers()</h5>
+									<p><ol>
+										<li>This function is initiated with two arguments, sValue and eValue.</li>
+										<li>Then, an empty array is initiated called numbers.</li>
+										<li>Next, a for loop is is used to loop to evaluate the Start and End values from the user. Index is initialized to sValue in the first part of the for loop condition.</li>
+										<li>In the second part of the for loop condition, the loop will run until index is <= eValue.</li>
+										<li>Then, in the 3rd part of the for loop condition, index increments by 1 each time through the loop.</li>
+										<li>The Block part of he funcion assigns the value of index to the numbers array each time through the loop.</li>
+										<li>Finally, the numbers array is returned abd passed to the displayNumbers() function.</li>
+										</ol>
+									</p>
+									<h5>Function: displayNumbers()</h5>
+									<p><ol>
+											<li>The job of this function is to display the numbers on the screen according teh the specifications.</li>
+											<li>The function is implemented with an argument. The argument takes the numbers array which was returned via the generateNumbers() function.</li>
+											<li>The variable templateRows is initiated with an empty string. This will be used to write out each row of numbers to the page in a table.</li>
+											<li>A for loop is used to loop through the numbers array and then assign each individual number to a variable called <strong>number</strong>.</li>
+											<li>Each individual number from the numbers array is assigned to templateRows using a template literal.</li>
+											<li>Likewise, to BOLD each even number per the specification, a className variable is created and assigned the string, "even".</li>
+											<li>To identify the even numbers, each individual number is divided by 2 using the modulus operator which returns a remainder.</li>
+											<li>If the remainder equals 0, "even" is assigned is assigned to className, else, "odd" is assigned.</li>
+											<li>The variable className is also assigned to templateRows using a template literal.Specifically, it is assigned as a class in the <td> tag of the table row.</li>
+											<li>In the site.css file, the font-weight for the odd and even classes are styled appropriately: even is bolded and odd is set to 100 or normal.</li>
+											<li>Finally, to write out the table in the HTML document, the getElementById property of the DOM is used to populate the innerHTML identified by the id "results" with templateRows. This is the variable containing all the individual numbers along with the class name of odd or even so they can be bolded or not.</li>
+										</ol>
+									</p>
 					</div>
 				</div>
          </div>
@@ -103,7 +189,7 @@
 									document.write(new Date().getFullYear());
 								</script></span
 							>
-							Clive Heron | cherongen@outlook.com
+							NorehcTech | cherongen@outlook.com
 						</div>
 					</div>
 					<div

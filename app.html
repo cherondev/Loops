@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>App Name: A Coding Project by CHeron</title>
+		<title>LOOPS: A Coding Project by CHeron</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
 		<!-- Bootstrap CSS -->
 		<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,9 +29,9 @@
 		<!-- === Nav Section === -->
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"
+				<a class="navbar-brand" href="index.html"
 					><img
-					src="img/favicon_io/favicon-32x32.png" alt="Norech Tech Logo" class="d-inline-block align-text-top" width="30" height="24" /> APP NAME</a
+					src="img/favicon_io/favicon-32x32.png" alt="Norech Tech Logo" class="d-inline-block align-text-top" width="30" height="24" /> LOOPS</a
 				>
 				<button
 					class="navbar-toggler"
@@ -57,7 +56,7 @@
 							<a class="nav-link" href="code.html">The Code</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#git-repo-link" target="_blank">Git Repo</a>
+							<a class="nav-link" href="https://github.com/cherondev/Loops" target="_blank">Git Repo</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#portfolio-link" target="_blank">About</a>
@@ -68,8 +67,42 @@
 		</nav>
 		<!-- === Main Section === -->
 		<main class="flex-shrink-0">
-         <div class="container">
+         <div class="container mt-5">
+				<div class="row row-cols-1 row-cols-lg-2">
+					<div class="col col-lg-4 border-end border-2">
+						<h1>LOOPS: A Coding Project</h1>
+						<h4 class="lead mt-3">Live life one loop at a time. A JavaScript coding exercise using loops. Write a program that displays the numbers from 0 to 100. Display the even numbers in <strong>BOLD</strong></h4>
+						<h2 class="mt-5 border-bottom border-2">Instructions</h2>
+						<p>Enter a starting value and an ending value. Press the button and the values will appear.</p>
+					</div>
+					<div class="col col-lg-8">
+						<div>
+							<h5>Enter Values</h5>
+							<form class="row gy-2 gx-3" action="">
+								<div class="col">
+									<input id="startValue" type="number" class="form-control" placeholder="Start Value" value="0" aria-label="Start Value">
+									<!-- <label for="startValue">Start Value</label> -->
+								</div>
 
+								<div class="col">
+									<input id="endValue" type="number" class="form-control" placeholder="End Value" value="100" aria-label="End Value">
+									<!-- <label for="endValue">End Value</label> -->
+								</div>
+								<div class="col-12 d-flex justify-content-end">
+									<button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Display Loop</button>
+								</div>
+							</form>
+							<h2 class="mt-5 border-bottom border-2">Results</h2>
+							<div class="table-responsive">
+								<table class="table table-striped table-sm">
+									<tbody id="results">
+										<!-- Results Go Here -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
          </div>
 		</main>
 		<!-- === Footer Section === -->
@@ -86,7 +119,7 @@
 									document.write(new Date().getFullYear());
 								</script></span
 							>
-							Clive Heron | cherongen@outlook.com
+							NorehcTech | cherongen@outlook.com
 						</div>
 					</div>
 					<div
@@ -125,5 +158,8 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="js/site.js"></script>
+		<script>
+			document.getElementById("btnSubmit").addEventListener("click", getValues);
+		</script>
 	</body>
 </html>

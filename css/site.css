@@ -5,6 +5,26 @@
    --white-color: #e7e7e7;
 }
 
+/*Google Fonts*/
+.font-racing-sans-one{
+   font-family: 'Racing Sans One', cursive;
+}
+
+cite {
+   font-style: italic;
+   font-size:x-small;
+ }
+
+ .odd {
+   font-weight: 100;
+ }
+
+ .even {
+   font-weight: bold;
+   font-size: large;
+   color: red;
+ }
+
 body{
    color: var(--dark-color);
 }
